@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ChildComponent } from './parent/child/child.component';
     AngularMaterialComponent,
     ApiCallComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
