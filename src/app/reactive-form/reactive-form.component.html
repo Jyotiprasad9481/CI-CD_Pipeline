@@ -1,0 +1,36 @@
+<form action="" class="container" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row col-md-12 justify-content-between my-2">
+        <div class="row col-md-4">
+            <label for="name">Name</label>
+            <input type="text" placeholder="Enter your Name" formControlName="name">
+            <div
+                *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched || registerForm.get('name')?.dirty">
+                <div *ngIf="registerForm.get('name')?.errors?.['required']" class="text-danger">Name is Required</div>
+            </div>
+        </div>
+
+        <div class="row col-md-4">
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter your Email" formControlName="email">
+            <div
+                *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched || registerForm.get('email')?.dirty">
+                <div *ngIf="registerForm.get('email')?.errors?.['required']" class="text-danger">Email is Required</div>
+                <div *ngIf="registerForm.get('email')?.errors?.['email']" class="text-danger">Email should be valid</div>
+            </div>
+        </div>
+
+        <div class="row col-md-4">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" placeholder="Enter your Phone Number" formControlName="phoneNumber">
+            <div
+                *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched || registerForm.get('phoneNumber')?.dirty">
+                <div *ngIf="registerForm.get('phoneNumber')?.errors?.['required']" class="text-danger">Phone Number is Required</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row col-md-12">
+        <button type="submit" class="w-100 bg-primary border-0 border rounded-2 text-white fw-bold">Submit</button>
+    </div>
+
+</form>

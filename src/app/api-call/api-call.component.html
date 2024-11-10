@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="input-group searchBar col-md-12">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" (input)="searchProducts()"
+            [(ngModel)]="searchTerm">
+    </div>
+    <div class="products col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortBy('id')">Id&nbsp;<i class="fa fa-sort"></i></th>
+                    <th (click)="sortBy('title')">Title</th>
+                    <th>Product</th>
+                    <th (click)="sortBy('category')">Category</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                    <th>Today Date</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let item of data | paginate : {itemsPerPage:6, currentPage : p}">
+                    <th >{{item.id}}</th>
+                    <td>{{item.title}}</td>
+                    <td><img [src]="item.image" alt="No Image" width="30" height="30"></td>
+                    <td>{{item.category}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.rating.rate}}</td>
+                    <td>{{currentDate | date: "YYYY-MMM-d"}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event" class="float-end"></pagination-controls>
+    </div>
+</div>

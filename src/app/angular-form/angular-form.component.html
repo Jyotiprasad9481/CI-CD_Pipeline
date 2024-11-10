@@ -1,0 +1,32 @@
+<form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name : </label>
+      <input type="text" placeholder="Enter Name" formControlName="name">
+      <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+        <small *ngIf="registerForm.get('name')?.errors?.['required']">Name is Required</small>
+        <small *ngIf="registerForm.get('name')?.errors?.['minlength']">Name at least 3 character</small>
+      </div>
+    </div>
+    <div>
+      <label for="">Email : </label>
+      <input type="text" placeholder="Enter Email" formControlName="email">
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Email should be Valid</small>
+      </div>
+    </div>
+    <div>
+      <label for="">Phone Number : </label>
+      <input type="text" placeholder="Enter Phone Number" formControlName="phoneNumber">
+      <div *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched">
+        <small *ngIf="registerForm.get('phoneNumber')?.errors?.['required']">Phone Number is required</small>
+        <small *ngIf="registerForm.get('phoneNumber')?.errors?.['minlength']">Name must be 10 digit</small>
+        <small *ngIf="registerForm.get('phoneNumber')?.errors?.['maxlength']">Name must be 10 digit</small>
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+    <button>Fetch Data</button>
+    <ul *ngFor="let item of data">
+      <li>{{item.Brand}}</li>
+    </ul>
+  </form>

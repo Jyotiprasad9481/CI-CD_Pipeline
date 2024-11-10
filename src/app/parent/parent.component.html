@@ -1,0 +1,10 @@
+<div class="container row col-md-12">
+<div class="col-md-6">
+    <h1>{{parentData}}</h1>
+    <button (click)="onclick()">Send data to Child</button>
+    <h1>This data from Child : {{childData}}</h1>
+</div>
+<div class="col-md-6">
+    <app-child [dataFromParent]="parentData" (datatoChild)="childFunction($event)"></app-child>
+</div>
+</div>

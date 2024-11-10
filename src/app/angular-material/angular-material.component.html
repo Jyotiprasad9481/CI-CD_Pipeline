@@ -1,0 +1,44 @@
+<mat-card class="m-3 d-flex align-items-center">
+    <form action="" class="container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row col-md-12 justify-content-between my-2">
+            <mat-form-field class="row col-md-4">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Enter your Name" formControlName="name">
+                <mat-error
+                    *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched || loginForm.get('name')?.dirty">
+                    <ng-container *ngIf="loginForm.get('name')?.errors?.['required']">Name is required</ng-container>
+                    <ng-container *ngIf="loginForm.get('name')?.errors?.['minlength']">Name must be 4
+                        charcater</ng-container>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="row col-md-4">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Enter your email" formControlName="email">
+                <mat-error
+                    *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched || loginForm.get('name')?.dirty">
+                    <ng-container *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</ng-container>
+                    <ng-container *ngIf="loginForm.get('email')?.errors?.['email']">Email must Valid</ng-container>
+                </mat-error>
+
+            </mat-form-field>
+            <mat-form-field class="row col-md-4">
+                <mat-label>phone Number</mat-label>
+                <input type="text" matInput placeholder="Enter your phone Number" formControlName="phoneNumber">
+                <mat-error
+                    *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched || loginForm.get('name')?.dirty">
+                    <ng-container *ngIf="loginForm.get('phoneNumber')?.errors?.['required']">phone Number is
+                        required</ng-container>
+                    <ng-container *ngIf="loginForm.get('phoneNumber')?.errors?.['minlength']">phone Number should be 10
+                        digit</ng-container>
+                    <ng-container *ngIf="loginForm.get('phoneNumber')?.errors?.['maxlength']">phone Number should be 10
+                        digit</ng-container>
+                </mat-error>
+
+            </mat-form-field>
+        </div>
+        <div class="row col-md-12 my-3">
+            <button mat-raised-button class="w-100 bg-primary border-0 border rounded-2 text-white fw-bold"
+                type="submit">Submit</button>
+        </div>
+    </form>
+</mat-card>
