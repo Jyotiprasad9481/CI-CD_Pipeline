@@ -5,6 +5,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
 import { ApiCallComponent } from './api-call/api-call.component';
 import { ParentComponent } from './parent/parent.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path : 'angularForm', component: AngularFormComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path : 'angularMaterial', component: AngularMaterialComponent},
   {path : 'apiCall', component: ApiCallComponent},
   {path : 'parent', component: ParentComponent},
+  {path : 'login', component: LoginComponent},
 
 ];
 
